@@ -54,19 +54,19 @@ and open the template in the editor.
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="campusNome">Nome do Campus</label>
-                        <h:inputText class="form-control" id="nomeCampus" value="#{campusController.campusNome}"/>
+                        <h:inputText class="form-control" id="nomeCampus" value="#{campusController.campusModel.campusNome}"/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="idEstadoCampus">Estado</label>
-                        <h:selectOneMenu class="form-control" id="idEstadoCampus" value="#{campusController.campusEstadoId}">
+                        <h:selectOneMenu class="form-control" id="idEstadoCampus" value="#{campusController.campusModel.campusEstadoId}">
                             <f:selectItems value="#{campusController.estados}" />
                         </h:selectOneMenu>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="idCidadeCampus">Cidade</label>
-                        <h:selectOneMenu class="form-control" id="idCidadeCampus" value="#{campusController.campusCidadeId}">
+                        <h:selectOneMenu class="form-control" id="idCidadeCampus" value="#{campusController.campusModel.campusCidadeId}">
                             <f:selectItems value="#{campusController.cidades}" />
                         </h:selectOneMenu>
                     </div>
