@@ -41,9 +41,13 @@ Contributor(s):
 -->
 <hibernate-configuration>
   <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
+    <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/frames1</property>
+    <property name="hibernate.connection.username">nbuser</property>
+    <property name="hibernate.connection.password">nbuser</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="edu.eventos.ifms.model.campusModel"/>
     <mapping class="edu.eventos.ifms.model.estadoModel"/>
-    <mapping class="edu.eventos.ifms.repository.estadoRepository"/>
   </session-factory>
 </hibernate-configuration>

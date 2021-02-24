@@ -19,17 +19,7 @@ public class estadoModel {
     private String estadoNome;
     @Column(nullable = false, length = 2)
     private String estadoSigla;
-    private estadoRepository estadoRepository;
   
-    
-    public List<SelectItem> getEstados() {
-        ArrayList<SelectItem> itens = new ArrayList<SelectItem>();
-        List<estadoModel> listaDeEstados = this.estadoRepository.buscar();
-        for (estadoModel estado : listaDeEstados) {
-            itens.add(new SelectItem(estado.getIdEstado(), estado.getEstadoNome()));
-        }
-        return itens;
-    }
 
     public long getIdEstado() {
         return idEstado;

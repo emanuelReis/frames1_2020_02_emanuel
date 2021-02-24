@@ -6,7 +6,7 @@ import edu.eventos.ifms.repository.campusRepository;
 import edu.eventos.ifms.repository.estadoRepository;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 
@@ -22,22 +22,25 @@ public class campusController {
         this.campusModel = new campusModel();
         this.campusRepository = new campusRepository();
     }
-
+    
     public void salvar() {
+        System.out.println("esse é o campus modelcontroller");
         this.campusRepository.salvar(this.campusModel);
     }
 
     public List<SelectItem> getEstados() {
         ArrayList<SelectItem> itens = new ArrayList<>();
-        List<estadoModel> listaDeEstados = this.estadoRepository.buscar();
-        listaDeEstados.forEach((estado) -> {
-            itens.add(new SelectItem(estado.getIdEstado(), estado.getEstadoNome()));
-        });
+       // List<estadoModel> listaDeEstados = this.estadoRepository.buscar();
+       // listaDeEstados.forEach((estado) -> {
+           // itens.add(new SelectItem(estado.getIdEstado(), estado.getEstadoNome()));
+        //});
         return itens;    
     }
 
     public List<SelectItem> getCidades() {
-        return null;
+        ArrayList<SelectItem> itens = new ArrayList<>();
+        
+        return itens;
 
     }
     

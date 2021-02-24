@@ -17,7 +17,13 @@ public class campusModel {
     private String campusNome;
     private int campusCidadeId;
     private int campusEstadoId;
-
+    
+    public campusModel(){
+        this.campusNome = "";
+        this.campusCidadeId = 0;
+        this.campusEstadoId = 0;
+ }
+    
     public long getIdCampus() {
         return idCampus;
     }

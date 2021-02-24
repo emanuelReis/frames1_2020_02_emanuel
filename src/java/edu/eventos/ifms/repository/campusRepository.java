@@ -16,5 +16,6 @@ public class campusRepository {
         this.session.save(campus);
         this.transaction.commit();
         this.session.close();
+        System.out.println("esse é o campus model");
     }
 }
