@@ -21,6 +21,7 @@ public class campusController {
     public campusController() {
         this.campusModel = new campusModel();
         this.campusRepository = new campusRepository();
+        this.estadoRepository = new estadoRepository();
     }
     
     public void salvar() {
@@ -29,11 +30,11 @@ public class campusController {
     }
 
     public List<SelectItem> getEstados() {
-        ArrayList<SelectItem> itens = new ArrayList<>();
-       // List<estadoModel> listaDeEstados = this.estadoRepository.buscar();
-       // listaDeEstados.forEach((estado) -> {
-           // itens.add(new SelectItem(estado.getIdEstado(), estado.getEstadoNome()));
-        //});
+        ArrayList<SelectItem> itens = new ArrayList<SelectItem>();
+        List<estadoModel> listaDeEstados = this.estadoRepository.buscar();
+        listaDeEstados.forEach((estado) -> {
+            itens.add(new SelectItem(estado.getIdEstado(), estado.getEstadoNome()));
+        });
         return itens;    
     }
 
@@ -58,5 +59,14 @@ public class campusController {
 	public void setCampusRepository(campusRepository campusRepository) {
 		this.campusRepository = campusRepository;
 	}
+
+    public estadoRepository getEstadoRepository() {
+        return estadoRepository;
+    }
+
+    public void setEstadoRepository(estadoRepository estadoRepository) {
+        this.estadoRepository = estadoRepository;
+    }
+        
    
 }

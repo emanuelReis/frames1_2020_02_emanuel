@@ -1,9 +1,6 @@
 package edu.eventos.ifms.model;
 
-import edu.eventos.ifms.repository.estadoRepository;
-import java.util.ArrayList;
-import java.util.List;
-import javax.faces.model.SelectItem;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "estados")
-public class estadoModel {
+public class estadoModel implements Serializable {
 
     @Id
     private long idEstado;
