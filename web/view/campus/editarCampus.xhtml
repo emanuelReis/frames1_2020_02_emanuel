@@ -9,8 +9,13 @@
 
     <ui:define name="corpo">
         <div class="container">
-            <h1>Cadastrar Campus</h1>
-            <h:form class="novo">
+            <f:metadata>
+                <f:viewParam value="#{campusController.campusModel.idCampus}" name="idCampus"/>
+                <f:viewAction action="#{campusController.getCampus()}" />
+            </f:metadata>
+            <h1>Editar Campus</h1>
+            <h:form>
+                <h:inputHidden id="idCampus" value="#{campusController.campusModel.idCampus}"/>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="nomeCampus">Nome do Campus</label>                
@@ -32,7 +37,14 @@
                         </h:selectOneMenu>
                     </div>
                 </div>
-                <h:commandButton class="btn btn-primary" value="salvar" action="#{campusController.salvar()}"/>
+                <div class="form-row">
+                    <div class="form-group col-md-1">
+                        <h:commandButton class="btn btn-secondary" value="voltar" action="buscarCampus.xhtml"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <h:commandButton class="btn btn-primary" value="salvar alterações" action="#{campusController.salvarEdicao()}"/>
+                    </div>
+                </div>
             </h:form>
         </div>
     </ui:define>

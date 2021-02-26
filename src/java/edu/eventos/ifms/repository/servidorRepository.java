@@ -1,59 +1,55 @@
 package edu.eventos.ifms.repository;
 
-import edu.eventos.ifms.model.campusModel;
+import edu.eventos.ifms.model.servidorModel;
 import edu.eventos.ifms.util.hibernateConector;
 import java.util.List;
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class campusRepository {
+public class servidorRepository {
 
     private Session session;
     private Transaction transaction;
 
-    public void salvar(campusModel campus) {
+    public void salvar(servidorModel servidor) {
         this.session = hibernateConector.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
 
-        this.session.saveOrUpdate(campus);
+        this.session.saveOrUpdate(servidor);
 
         this.transaction.commit();
         this.session.close();
     }
 
-    public List<campusModel> buscarTodos() {
+    public List<servidorModel> buscarTodos() {
         this.session = hibernateConector.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
 
-        List<campusModel> listaDeCampus = this.session.createQuery("from campusModel").list();
+        List<servidorModel> listaDeServidores = this.session.createQuery("from servidorModel").list();
 
         this.transaction.commit();
         this.session.close();
-        return listaDeCampus;
+        return listaDeServidores;
     }
 
-    public void remover(long idCampus) {
+    public void remover(long idServidor) {
         this.session = hibernateConector.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
 
-        campusModel campus = (campusModel) this.session.get(campusModel.class, idCampus);
-        this.session.delete(campus);
-
-        this.transaction.commit();
-
-    }
-
-    public campusModel buscarPorId(long idCampus) {
-        this.session = hibernateConector.getSessionFactory().openSession();
-        this.transaction = session.beginTransaction();
-
-        campusModel campus = (campusModel) this.session.get(campusModel.class, idCampus);
-        Hibernate.initialize(campus.getServidores());
-        
+        servidorModel servidor = (servidorModel) this.session.get(servidorModel.class, idServidor);
+        this.session.delete(servidor);
         this.transaction.commit();
         this.session.close();
-        return campus;
     }
 
+    public servidorModel buscarPorId(long idServidor) {
+        this.session = hibernateConector.getSessionFactory().openSession();
+        this.transaction = session.beginTransaction();
+
+        servidorModel servidor = (servidorModel) this.session.get(servidorModel.class, idServidor);
+
+        this.transaction.commit();
+        this.session.close();
+        return servidor;
+    }
 }

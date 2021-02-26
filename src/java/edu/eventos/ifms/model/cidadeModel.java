@@ -29,26 +29,20 @@ public class cidadeModel implements Serializable {
     public long getIdCidade() {
         return idCidade;
     }
-
     public void setIdCidade(long idCidade) {
         this.idCidade = idCidade;
     }
-
     public String getCidadeNome() {
         return cidadeNome;
     }
-
     public void setCidadeNome(String cidadeNome) {
         this.cidadeNome = cidadeNome;
     }
-
     public estadoModel getEstado() {
         return estado;
     }
-
     public void setEstado(estadoModel estado) {
         this.estado = estado;
     }
 
 }
-

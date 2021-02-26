@@ -12,28 +12,29 @@ public class estadoRepository {
     private Transaction transaction;
 
     public List<estadoModel> buscar() {
-        this.session = hibernateConector.getSessionFactory().openSession();
-        this.transaction = session.beginTransaction();
-        List<estadoModel> listaDeEstados = this.session.createQuery("from estadoModel").list();
-        this.transaction.commit();
-        this.session.close();
+        this.setSession(hibernateConector.getSessionFactory().openSession());
+        this.setTransaction(getSession().beginTransaction());
+
+        List<estadoModel> listaDeEstados = this.getSession().createQuery("from estadoModel").list();
+
+        this.getTransaction().commit();
+        this.getSession().close();
         return listaDeEstados;
     }
 
     public Session getSession() {
         return session;
     }
-
     public void setSession(Session session) {
         this.session = session;
     }
-
     public Transaction getTransaction() {
         return transaction;
     }
-
     public void setTransaction(Transaction transaction) {
         this.transaction = transaction;
     }
 
+    
+    
 }
